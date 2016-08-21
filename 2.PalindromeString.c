@@ -20,7 +20,6 @@ j--;
 i++;
 }
 return str;
-//printf("Name is %s\n",str);
 }
 
 int main(){
@@ -31,8 +30,7 @@ scanf("%s",name );
 revName=(char*)calloc(length(name), sizeof(char));
 strcpy(revName,name);
 reverse(name);
-// printf("%s\n",revName );
-// printf("%s\n",name );
+
 while(revName[i]!='\0'){
 if(name[i] != revName[i]){
   printf("String Not Palindrome");
