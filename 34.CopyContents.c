@@ -19,8 +19,9 @@ while(c != EOF){
   c= getc(fp1);
   putc(c,fp2);
 }
-
 }
+fclose(fp1);
+fclose(fp2);
 return 0;
 
 }
