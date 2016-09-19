@@ -6,6 +6,46 @@ typedef struct node{
   struct node *next;
 } node_t;
 
+void addStart(node_t *head, int val);
+void addEnd(node_t *head, int val);
+void addPosition(node_t *head, int pos, int val);
+void traverse(node_t *head);
+void removeStart(node_t *head);
+void removePosition(node_t *head, int pos);
+void removeEnd(node_t *head);
+
+
+int main(){
+
+  node_t *HEAD = NULL;
+  HEAD = malloc(sizeof(node_t));
+
+  HEAD->value = 1;
+  HEAD->next = NULL;
+  addStart(HEAD, 2);
+  addStart(HEAD, 3);
+  addStart(HEAD, 4);
+  addStart(HEAD, 5);
+  addStart(HEAD, 6);
+  addStart(HEAD, 7);
+  addEnd(HEAD, 8);
+  addEnd(HEAD, 9);
+  addEnd(HEAD, 10);
+  traverse(HEAD);
+  printf("======After ADDING=====\n");
+  addPosition(HEAD, 5, 33);
+  traverse(HEAD);
+
+  // removePosition(HEAD,4);
+  // printf("======After Removing=====\n");
+  // traverse(HEAD);
+
+  return 0;
+}
+
+
+
+
 void addStart(node_t *head, int val){
   node_t *current = head, *temp;
   if(current->next == NULL){
@@ -83,32 +123,4 @@ void traverse(node_t *head){
       current = current->next;
     }
 printf("\n");
-}
-
-int main(){
-
-  node_t *HEAD = NULL;
-  HEAD = malloc(sizeof(node_t));
-
-  HEAD->value = 1;
-  HEAD->next = NULL;
-  addStart(HEAD, 2);
-  addStart(HEAD, 3);
-  addStart(HEAD, 4);
-  addStart(HEAD, 5);
-  addStart(HEAD, 6);
-  addStart(HEAD, 7);
-  addEnd(HEAD, 8);
-  addEnd(HEAD, 9);
-  addEnd(HEAD, 10);
-  traverse(HEAD);
-  printf("======After ADDING=====\n");
-  addPosition(HEAD, 5, 33);
-  traverse(HEAD);
-
-  // removePosition(HEAD,4);
-  // printf("======After Removing=====\n");
-  // traverse(HEAD);
-
-  return 0;
 }
