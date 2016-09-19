@@ -34,7 +34,7 @@ void addEnd(node_t *head, int val){
 void addPosition(node_t *head, int pos, int val){
   int i=0;
   node_t *current = head, *temp = malloc(sizeof(node_t));
-  for(i=1;i<pos-1;i++){
+  for(i=1;i<pos;i++){
   current = current->next;
   }
 
@@ -62,6 +62,19 @@ void removeEnd(node_t *head){
   free(upcoming);
 }
 
+void removePosition(node_t *head, int pos){
+  int i=0;
+  node_t *current = head, *temp, *upcoming;
+  upcoming = current->next;
+  for(i=1;i<pos;i++){
+    upcoming = upcoming->next;
+  current = current->next;
+  }
+  temp = upcoming->next;
+  current->next = temp;
+  free(upcoming);
+}
+
 void traverse(node_t *head){
   node_t *current = head->next;
 
@@ -84,15 +97,18 @@ int main(){
   addStart(HEAD, 4);
   addStart(HEAD, 5);
   addStart(HEAD, 6);
+  addStart(HEAD, 7);
   addEnd(HEAD, 8);
   addEnd(HEAD, 9);
   addEnd(HEAD, 10);
-  addPosition(HEAD, 6, 33);
+  traverse(HEAD);
+  printf("======After ADDING=====\n");
+  addPosition(HEAD, 5, 33);
   traverse(HEAD);
 
-  removeEnd(HEAD);
-  printf("======After Removing=====\n");
-  traverse(HEAD);
+  // removePosition(HEAD,4);
+  // printf("======After Removing=====\n");
+  // traverse(HEAD);
 
   return 0;
 }
